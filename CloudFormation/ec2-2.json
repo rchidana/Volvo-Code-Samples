@@ -1,0 +1,47 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+      "MyKeys": {
+          "Description": "Please choose your SSH Keys for your EC2 instance",
+          "Type": "AWS::EC2::KeyPair::KeyName"
+      },
+      "MySecurityGroup": {
+          "Description": "Please choose your Security Group",
+          "Type": "List<AWS::EC2::SecurityGroup::Id>",
+          "Default": "-"
+      }
+
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+      "WebInstance2": {
+          "Type": "AWS::EC2::Instance",
+          "Properties": {
+              "KeyName": { "Ref": "MyKeys" },
+              "ImageId": "ami-b70554c8",
+              "InstanceType": "t2.micro",
+              "Monitoring": "true",
+              "SecurityGroupIds" : { "Ref": "MySecurityGroup" },
+              "Tags": [
+                  {
+                      "Key": "Name",
+                      "Value": "WebServer2"
+                  }
+              ]
+      }
+              }
+
+    },
+    "Outputs": {
+
+    }
+}

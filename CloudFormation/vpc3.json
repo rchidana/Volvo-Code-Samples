@@ -1,0 +1,50 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+      "VpcCidrBlock": {
+          "Description": "Please enter the CIDR Block details",
+          "Type": "String",
+          "Default": "10.0.0.0/16"
+      },
+      "subnet1CidrBlock": {
+          "Description": "Please Enter Subnet CIDR Block",
+          "Type": "String",
+          "Default": "10.0.1.0/24"
+      },
+      "AZones": {
+          "Description": "Please choose the Availability Zones for Subnet1",
+          "Type": "AWS::EC2::AvailabilityZone::Name"
+      }
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+      "myfirstpvc": {
+        "Type": "AWS::EC2::VPC",
+        "Properties": {
+          "CidrBlock": { "Ref": "VpcCidrBlock" },
+          "Tags": [{ "Key": "Name", "Value":  "DemoVPC" }]
+        }
+      },
+      "subnet1": {
+        "Type": "AWS::EC2::Subnet",
+        "Properties": {
+          "AvailabilityZone": { "Ref": "AZones"},
+          "VpcId": { "Ref": "myfirstpvc" },
+          "CidrBlock": { "Ref": "subnet1CidrBlock" },
+          "Tags": [{ "Key": "Name", "Value":  "subnet1" }]
+        }
+      }
+    },
+    "Outputs": {
+
+    }
+}

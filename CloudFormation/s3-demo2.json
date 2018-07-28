@@ -1,0 +1,34 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+      "mybucketname": {
+          "Description": "Please enter the name of the Bucket that you want to create",
+          "Type": "String",
+          "Default": "default-bucket-name-volvo-it"
+      }
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+      "s3Bucket": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "BucketOwnerFullControl",
+          "BucketName": { "Ref": "mybucketname" },
+          "Tags": [{ "Key": "Bucket-Name", "Value":  "Parameter-Bucket" }]
+        }
+      }
+
+    },
+    "Outputs": {
+
+    }
+}

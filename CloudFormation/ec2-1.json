@@ -1,0 +1,36 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+      "WebInstance": {
+          "Type": "AWS::EC2::Instance",
+          "Properties": {
+              "ImageId": "ami-b70554c8",
+              "InstanceType": "t2.micro",
+              "Monitoring": "true",
+              "Tags": [
+                  {
+                      "Key": "Name",
+                      "Value": "WebServer1"
+                  }
+              ],
+      }
+              }
+
+    },
+    "Outputs": {
+
+    }
+}

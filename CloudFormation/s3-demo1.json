@@ -1,0 +1,30 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Metadata": {
+
+    },
+    "Parameters": {
+
+    },
+    "Mappings": {
+
+    },
+    "Conditions": {
+
+    },
+    "Resources": {
+      "s3Bucket": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "AccessControl": "BucketOwnerFullControl",
+          "BucketName": "owner-bucket-volvo-demo1",
+          "Tags": [{ "Key": "Bucket-Name", "Value":  "First-Atom-Bucket" }]
+        }
+      }
+
+    },
+    "Outputs": {
+
+    }
+}
