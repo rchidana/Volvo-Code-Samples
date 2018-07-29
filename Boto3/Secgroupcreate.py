@@ -7,7 +7,7 @@ response = ec2.describe_vpcs()
 vpc_id = response.get('Vpcs', [{}])[0].get('VpcId', '')
 
 try:
-    response = ec2.create_security_group(GroupName='ACCENTURE_SEC_GROUP',
+    response = ec2.create_security_group(GroupName='VOLVO_SEC_GROUP',
                                          Description='Created using Boto3',
                                          VpcId=vpc_id)
     security_group_id = response['GroupId']
